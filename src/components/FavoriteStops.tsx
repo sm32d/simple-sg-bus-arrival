@@ -83,7 +83,7 @@ export default function FavoriteStops({ onSelectStop }: FavoriteStopsProps) {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {favorites.map((favorite, index) => (
             <div
               key={index}
@@ -101,7 +101,7 @@ export default function FavoriteStops({ onSelectStop }: FavoriteStopsProps) {
                     Stop: {favorite.code}
                   </div>
                 </button>
-                <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="flex space-x-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <button
                     onClick={() => handleEdit(index)}
                     className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-full transition-colors duration-200"
