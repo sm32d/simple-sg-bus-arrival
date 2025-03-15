@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SearchInput from '@/components/SearchInput';
 import BusStopInfo from '@/components/BusStopInfo';
+import FavoriteStops from '@/components/FavoriteStops';
 
 interface BusArrival {
   EstimatedArrival: string;
@@ -66,6 +67,8 @@ export default function Home() {
         </h1>
         
         <SearchInput onSearch={handleSearch} />
+        
+        <FavoriteStops onSelectStop={handleSearch} />
         
         {lastUpdated && (
           <div className="mt-2 text-sm text-gray-600 text-center">
