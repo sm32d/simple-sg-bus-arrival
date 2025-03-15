@@ -11,25 +11,37 @@ export async function GET(request: Request) {
     );
   }
 
+  const apiKey = process.env.NEXT_PUBLIC_LTA_API_KEY;
+  if (!apiKey) {
+    console.error('LTA API key is not configured');
+    return NextResponse.json(
+      { error: 'API configuration error' },
+      { status: 500 }
+    );
+  }
+
   try {
     const response = await fetch(
       `https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival?BusStopCode=${busStopCode}`,
       {
         headers: {
-          'AccountKey': process.env.NEXT_PUBLIC_LTA_API_KEY || '',
+          'AccountKey': apiKey,
         },
       }
     );
 
     if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
+      const errorText = await response.text();
+      console.error('LTA API error:', response.status, errorText);
+      throw new Error(`API request failed: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
+    console.error('Error fetching bus arrival data:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch bus arrival information' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch bus arrival information' },
       { status: 500 }
     );
   }

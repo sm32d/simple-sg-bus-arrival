@@ -1,13 +1,29 @@
 'use client';
 
 import { useState } from 'react';
-import BusStopInfo from '@/components/BusStopInfo';
 import SearchInput from '@/components/SearchInput';
+import BusStopInfo from '@/components/BusStopInfo';
+
+interface BusArrival {
+  EstimatedArrival: string;
+  Load: 'SEA' | 'SDA' | 'LSD';
+  Type: 'SD' | 'DD' | 'BD';
+  Feature: string;
+  Monitored: string;
+}
+
+interface BusService {
+  ServiceNo: string;
+  Operator: string;
+  NextBus: BusArrival;
+  NextBus2: BusArrival;
+  NextBus3: BusArrival;
+}
 
 export default function Home() {
   const [busStopCode, setBusStopCode] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
-  const [busServices, setBusServices] = useState<any[]>([]);
+  const [busServices, setBusServices] = useState<BusService[]>([]);
   const [error, setError] = useState<string>('');
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
