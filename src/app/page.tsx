@@ -63,7 +63,7 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-lg mx-auto px-4">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          SG Bus Arrival Info
+        🚌 SG Bus Arrival Info
         </h1>
         
         <SearchInput onSearch={handleSearch} />
