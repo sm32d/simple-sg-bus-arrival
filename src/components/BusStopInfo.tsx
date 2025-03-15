@@ -51,7 +51,7 @@ function BusInfo({ bus, index }: { bus: BusArrival; index: number }) {
     <div className="flex items-center justify-between py-3 px-4 hover:bg-gray-100 rounded-lg transition-colors duration-200">
       <div className={`text-lg font-medium ${loadClass}`}>{arrivalText}</div>
       <div className="text-gray-700 flex items-center space-x-2">
-        <span className="font-medium">{index === 0 ? 'Next Bus' : `${index + 1}nd Bus`}</span>
+        <span className="font-medium">{index === 0 ? 'Next Bus' : `${index + 1}${index === 1 ? 'nd' : index === 2 ? 'rd' : 'th'} Bus`}</span>
         {bus.Feature === 'WAB' && (
           <span className="ml-2 bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full text-xs" title="Wheelchair Accessible">♿</span>
         )}
