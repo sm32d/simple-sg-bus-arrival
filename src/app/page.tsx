@@ -89,6 +89,17 @@ export default function Home() {
             services={busServices}
           />
         )}
+        <footer className="mt-12 text-center text-sm text-gray-600">
+          <p>Made with ❤️ in 🇸🇬 by <a href="https://bento.me/sm32d" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline">dominik</a></p>
+          <a 
+            href="https://github.com/sm32d/simple-sg-bus-arrival" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            GitHub Repository
+          </a>
+        </footer>
       </div>
     </main>
   );
