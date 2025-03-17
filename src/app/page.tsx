@@ -99,6 +99,7 @@ export default function Home() {
           >
             GitHub Repository
           </a>
+          <p>v1.0.1</p>
         </footer>
       </div>
     </main>
