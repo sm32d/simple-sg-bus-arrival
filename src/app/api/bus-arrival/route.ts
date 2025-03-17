@@ -26,6 +26,9 @@ export async function GET(request: Request) {
       {
         headers: {
           'AccountKey': apiKey,
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
+          'Expires': '0'
         },
       }
     );
